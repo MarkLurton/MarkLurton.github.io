@@ -17,7 +17,14 @@ module.exports = merge(common, {
     minimizer: [
       new OptimizeCssAssetsPlugin(),
       new TerserPlugin(),
-      new HtmlWebpackPlugin({
+    ],
+  },
+  plugins: [
+    new CleanWebpackPlugin(),
+    new MiniCssExtractPlugin({
+      filename: "[name].[contenthash].css",
+    }),
+    new HtmlWebpackPlugin({
         template: "./src/template.html",
         favicon: "./src/assets/favicon.png",
         minify: {
@@ -25,13 +32,6 @@ module.exports = merge(common, {
           collapseWhitespace: true,
           removeComments: true,
         },
-      }),
-    ],
-  },
-  plugins: [
-    new CleanWebpackPlugin(),
-    new MiniCssExtractPlugin({
-      filename: "[name].[contenthash].css",
     }),
   ],
   module: {
