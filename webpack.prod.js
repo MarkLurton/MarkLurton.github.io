@@ -25,7 +25,7 @@ module.exports = merge(common, {
       filename: "[name].[contenthash].css",
     }),
     new HtmlWebpackPlugin({
-        template: "./template.html",
+        template: "./index.html",
         favicon: "./src/assets/favicon.png",
         minify: {
           removeAttributeQuotes: true,
